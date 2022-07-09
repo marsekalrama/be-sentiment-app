@@ -5,7 +5,7 @@ from ..helper.encoder import AlchemyEncoder
 from ..helper.TweetClassifier import TweetClassifier
 import json
 import tweepy
-import numpy
+# import numpy
 from os import environ, path
 from dotenv import load_dotenv
 import datetime
