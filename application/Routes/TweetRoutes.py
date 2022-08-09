@@ -47,6 +47,21 @@ def countTweet():
     return json.dumps({"count":count})
 
 @cross_origin()
+@app.route('/tweet/count-negative', methods=['GET'])
+def countNegativeTweet():
+    hashtag = request.args.get("hashtag")
+    count = Tweet.query.filter_by(search_val=hashtag, classification_result="0").count()
+    return json.dumps({"count":count})
+
+@cross_origin()
+@app.route('/tweet/count-positive', methods=['GET'])
+def countPositiveTweet():
+    hashtag = request.args.get("hashtag")
+    count = Tweet.query.filter_by(search_val=hashtag, classification_result="1").count()
+    return json.dumps({"count":count})
+
+
+@cross_origin()
 @app.route('/tweet/detail', methods=['GET'])
 def selectSingleTweet():
     id = request.args.get("id")
